@@ -29,8 +29,8 @@ class videos extends StatelessWidget {
         children: <Widget>[
           HandpickedCard("primero", "Skeleton"),
           HandpickedCard("segundo", "Muscles"),
-          HandpickedCard("Growing", "Nervous System"),
-          HandpickedCard("Matching", "Respiratory System")
+          HandpickedCard("tercero", "Nervous System"),
+          HandpickedCard("cuarto", "Respiratory System")
         ],
       ),
     );
