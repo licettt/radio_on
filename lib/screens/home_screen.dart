@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
         children: <Widget>[
           CustomCard.vertical(2, "Galeria de videos", "assets/youtube.jpg",Icon(Icons.video_library), Color(0xFFD50000) ),
           CustomCard.vertical(3, "Ranking de la semana", "assets/ranking.jpg",Icon(Icons.music_note), Color(0xFF0091ea) ),
-          CustomCard.vertical(4, "Nuestros servicios", "assets/pic_3.jpg",Icon(Icons.room_service),Color(0xFF00bfa5)),
+          CustomCard.vertical(4, "Nuestros servicios", "assets/youtube.jpg",Icon(Icons.room_service),Color(0xFF00B8D4)),
         ],
       ),
     );
