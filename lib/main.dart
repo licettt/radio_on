@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:flutter_radio/flutter_radio.dart';
 
 import 'package:radio_on_app/screens/home_screen.dart';
+import 'package:video_player/video_player.dart';
 //void main() => runApp(new MyApp());
 
 // esto es anatomic

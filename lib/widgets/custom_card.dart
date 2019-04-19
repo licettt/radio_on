@@ -89,7 +89,7 @@ class CustomCard extends StatelessWidget {
       onTap: (){
         if(mId > 0){
           Navigator.push(context, MaterialPageRoute(builder: (_){
-            return videos(mId, mTitle, mPathImage, mIcon, mFilter);
+            return videos();
           }));
         }
       },
