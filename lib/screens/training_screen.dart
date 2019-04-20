@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:radio_on_app/widgets/custom_card.dart';
 import 'package:radio_on_app/widgets/custom_text.dart';
 import 'package:flutube/flutube.dart';
+import 'package:radio_on_app/screens/videos.dart';
 
 class TrainingScreen extends StatelessWidget {
   final List<String> playlist = <String>[
@@ -30,11 +31,11 @@ class TrainingScreen extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 20.0),
 
       child: ListView(
+        scrollDirection: Axis.horizontal,
         children: <Widget>[
-          HandpickedCard("Find and Select", "Skeleton"),
-          HandpickedCard("asdsadsadsad", "Muscles"),
-          HandpickedCard("sdfsdfdsf", "Nervous System"),
-          HandpickedCard("sdsss", "Respiratory System")
+          CustomCard.vertical(2, "Galeria de videos", "assets/youtube.jpg",Icon(Icons.video_library), Color(0xFFD50000) ),
+          CustomCard.vertical(3, "Ranking de la semana", "assets/ranking.jpg",Icon(Icons.music_note), Color(0xFF0091ea) ),
+          CustomCard.vertical(4, "Nuestros servicios", "assets/youtube.jpg",Icon(Icons.room_service),Color(0xFF00B8D4)),
         ],
       ),
     );

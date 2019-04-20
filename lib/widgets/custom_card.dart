@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:radio_on_app/widgets/custom_text.dart';
 import 'package:radio_on_app/screens/training_screen.dart';
 import 'package:radio_on_app/screens/videos.dart';
-import 'package:radio_on_app/screens/primercontenido.dart';
 
 class CustomCard extends StatelessWidget {
   double mPaddingCard = 10.0;
@@ -90,9 +89,8 @@ class CustomCard extends StatelessWidget {
       onTap: (){
         if(mId > 0){
           Navigator.push(context, MaterialPageRoute(builder: (_){
-            //return videos();
-            return TrainingScreen(2, "Galeria de videos", "assets/youtube.jpg",Icon(Icons.video_library), Color(0xFFD50000) );
-            //return primercontenido();
+            return videos();
+            //return TrainingScreen(2, "Galeria de videos", "assets/youtube.jpg",Icon(Icons.video_library), Color(0xFFD50000) );
           }));
         }
       },

@@ -31,6 +31,7 @@ class _VideoAppState extends State<videos> {
         title: Text('FluTube Test'),
       ),
       body: SingleChildScrollView(
+
         child: Column(
           children: <Widget>[
             Text('Youtube video URL: ${playlist[currentPos]}', style: TextStyle(fontSize: 16.0),),
