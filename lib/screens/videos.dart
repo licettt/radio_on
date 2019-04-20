@@ -1,5 +1,6 @@
 import 'package:video_player/video_player.dart';
 import 'package:flutter/material.dart';
+import 'package:flutube/flutube.dart';
 
 void main() => runApp(videos());
 
@@ -9,51 +10,52 @@ class videos extends StatefulWidget {
 }
 
 class _VideoAppState extends State<videos> {
-  VideoPlayerController _controller;
+  final List<String> playlist = <String>[
+    'https://www.youtube.com/watch?v=7hFQC3nmm2c&t=0s',
+    'https://www.youtube.com/watch?v=D-o4BqJxmJE',
+  ];
+  int currentPos;
+  String stateText;
 
   @override
   void initState() {
+    currentPos = 0;
+    stateText = "Video not started";
     super.initState();
-    _controller = VideoPlayerController.network(
-        'http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_20mb.mp4')
-      ..initialize().then((_) {
-        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-        setState(() {});
-      });
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Video Demo',
-      home: Scaffold(
-        body: Center(
-          child: _controller.value.initialized
-              ? AspectRatio(
-            aspectRatio: _controller.value.aspectRatio,
-            child: VideoPlayer(_controller),
-          )
-              : Container(),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            setState(() {
-              _controller.value.isPlaying
-                  ? _controller.pause()
-                  : _controller.play();
-            });
-          },
-          child: Icon(
-            _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('FluTube Test'),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Text('Youtube video URL: ${playlist[currentPos]}', style: TextStyle(fontSize: 16.0),),
+            FluTube(
+              playlist[currentPos],
+              autoInitialize: true,
+              aspectRatio: 16 / 9,
+              allowMuting: false,
+              onVideoStart: () {
+                setState(() {
+                  stateText = 'Video started playing!';
+                });
+              },
+              onVideoEnd: () {
+                setState(() {
+                  stateText = 'Video ended playing!';
+                  if((currentPos + 1) < playlist.length)
+                    currentPos++;
+                });
+              },
+            ),
+            Text(stateText),
+          ],
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _controller.dispose();
   }
 }

@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:radio_on_app/widgets/custom_card.dart';
 import 'package:radio_on_app/widgets/custom_text.dart';
+import 'package:flutube/flutube.dart';
 
 class TrainingScreen extends StatelessWidget {
-  Color mPurpleColor = Color(0xFF6200ea);
+  final List<String> playlist = <String>[
+    'https://www.youtube.com/watch?v=7hFQC3nmm2c&t=0s',
+    'https://www.youtube.com/watch?v=D-o4BqJxmJE',
+  ];
+  int currentPos;
+  String stateText;
 
+
+
+  Color mPurpleColor = Color(0xFF6200ea);
   String mTitle;
   String mPathImage;
   Icon mIcon;
@@ -12,8 +21,24 @@ class TrainingScreen extends StatelessWidget {
   int mId;
 
   TrainingScreen(this.mId, this.mTitle, this.mPathImage, this.mIcon, this.mColor);
+  //TrainingScreen();
   @override
   Widget build(BuildContext context) {
+
+    final videoYoutube = Container(
+      height: 240.0,
+      margin: EdgeInsets.only(bottom: 20.0),
+
+      child: ListView(
+        children: <Widget>[
+          HandpickedCard("Find and Select", "Skeleton"),
+          HandpickedCard("asdsadsadsad", "Muscles"),
+          HandpickedCard("sdfsdfdsf", "Nervous System"),
+          HandpickedCard("sdsss", "Respiratory System")
+        ],
+      ),
+    );
+
 
     final ListHandPicked = Container(
       height: 400.0,
@@ -24,12 +49,21 @@ class TrainingScreen extends StatelessWidget {
       ),
       child: ListView(
         children: <Widget>[
+          // CustomText.margin("April 6th", Colors.grey, 18.0, 20.0, 0.0, 20.0, 10.0),
+          // CustomText.margin("Ready to Learn?", Colors.amberAccent, 24.0, 20.0, 0.0, 0.0, 30.0),
+          //CustomCard(1, "Radio Topo", "assets/banner.png",Icon(Icons.account_balance_wallet), ),
+          //CustomText.margin("Handpicked", Colors.black, 20.0, 20.0, 0.0, 20.0, 30.0),
+          videoYoutube
+        ],
+      ),
+      /*child: ListView(
+        children: <Widget>[
           HandpickedCard("Find and Select", "Skeleton"),
           HandpickedCard("Scan for Musclest", "Muscles"),
           HandpickedCard("Growing", "Nervous System"),
           HandpickedCard("Matching", "Respiratory System")
         ],
-      ),
+      ),*/
     );
 
     final HeadBar = Container(
@@ -50,7 +84,7 @@ class TrainingScreen extends StatelessWidget {
                 )
             ),
           ),
-          CustomText.margin("Handpicked", Colors.white, 22.0, 15.0, 0.0,15.0,0.0),
+          CustomText.margin("VIDEOS", Colors.white, 22.0, 15.0, 0.0,15.0,0.0),
         ],
       ),
     );
